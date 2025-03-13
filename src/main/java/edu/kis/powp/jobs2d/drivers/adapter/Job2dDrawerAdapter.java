@@ -28,7 +28,7 @@ public class Job2dDrawerAdapter extends DrawPanelController implements Job2dDriv
 		line.setEndCoordinates(x, y);
 		setPosition(x, y);
 
-		drawLine(line);
+		edu.kis.powp.jobs2d.features.DrawerFeature.getDrawerController().drawLine(line);
 	}
 
 	@Override
