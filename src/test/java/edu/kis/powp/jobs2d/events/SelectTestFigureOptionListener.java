@@ -3,6 +3,7 @@ package edu.kis.powp.jobs2d.events;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import edu.kis.powp.jobs2d.command.ComplexCommand;
 import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.command.OperateToCommand;
 import edu.kis.powp.jobs2d.command.SetPositionCommand;
@@ -18,6 +19,8 @@ public class SelectTestFigureOptionListener implements ActionListener {
 	private final static String figureJoe2 = "Figure Joe 2";
 	private final static String figureJane1 = "Figures Jane";
 	private final static String figure = "Figure4";
+	private final static String figure2 = "Figure5";
+	private final static String figure3 = "Figure6";
 
 	public SelectTestFigureOptionListener(DriverManager driverManager) {
 		this.driverManager = driverManager;
@@ -48,6 +51,23 @@ public class SelectTestFigureOptionListener implements ActionListener {
 				driverCommand3.execute(driverManager.getCurrentDriver());
 				driverCommand4.execute(driverManager.getCurrentDriver());
 
+				break;
+			case figure2:
+				ComplexCommand complexCommand = new ComplexCommand();
+				complexCommand.addCommand(new SetPositionCommand(-100, 0));
+				complexCommand.addCommand(new OperateToCommand(100, 0));
+				complexCommand.addCommand(new OperateToCommand(100, 100));
+				complexCommand.addCommand(new OperateToCommand(-100, 100));
+				complexCommand.addCommand(new OperateToCommand(-100, 0));
+				complexCommand.execute(driverManager.getCurrentDriver());
+				break;
+			case figure3:
+				ComplexCommand complexCommand1 = new ComplexCommand();
+				complexCommand1.addCommand(new SetPositionCommand(-100, 0));
+				complexCommand1.addCommand(new OperateToCommand(50, 100));
+				complexCommand1.addCommand(new OperateToCommand(100, 0));
+				complexCommand1.addCommand(new OperateToCommand(-100, 0));
+				complexCommand1.execute(driverManager.getCurrentDriver());
 				break;
 		}
 	}
